@@ -1,6 +1,7 @@
 'use client'
 
 import Avatar from '@/components/avatar'
+import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
