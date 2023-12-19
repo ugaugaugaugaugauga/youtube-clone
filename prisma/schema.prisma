@@ -1,13 +1,14 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-generator client {
-  provider = "prisma-client-js"
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+generator client {
+  provider = "prisma-client-js"
 }
 
 model User {
@@ -51,10 +52,11 @@ model Subscribe {
   id     String @id @default(uuid())
   userId String
 
-  createAt  DateTime @default(now())
-  updateAt  DateTime @updatedAt
-  channelId String?
-  user      User     @relation(fields: [userId], references: [id])
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+  user     User     @relation(fields: [userId], references: [id])
+
+  @@index([userId])
 }
 
 model Video {
@@ -68,9 +70,10 @@ model Video {
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
 
-  comments  Comment[]
-  channelId String?
-  user      User      @relation(fields: [userId], references: [id])
+  comments Comment[]
+  user     User      @relation(fields: [userId], references: [id])
+
+  @@index([userId])
 }
 
 model Comment {
@@ -83,4 +86,7 @@ model Comment {
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
   User     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([videoId])
+  @@index([userId])
 }
