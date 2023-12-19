@@ -3,9 +3,12 @@ import db from '@/lib/prismadb'
 
 const MainPage = async () => {
   const videos = await db.video.findMany({
-    take: 10,
+    take: 30,
     include: {
       user: true,
+    },
+    orderBy: {
+      createAt: 'desc',
     },
   })
 
