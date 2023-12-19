@@ -23,6 +23,7 @@ model User {
   accounts   Account[]
   subscribes Subscribe[]
   videos     Video[]
+  commets    Comment[]
 }
 
 model Account {
@@ -81,4 +82,5 @@ model Comment {
 
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
+  User     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

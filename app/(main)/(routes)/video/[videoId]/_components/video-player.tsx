@@ -7,7 +7,7 @@ const VideoPlayer = ({ src }: VideoPlayerProps) => {
     <div className='bg-zinc-900 flex flex-col'>
       <video
         src={src}
-        className='aspect-video mx-auto bg-zinc-600 w-2/3'
+        className='aspect-video mx-auto bg-zinc-600 md:w-2/3 w-full'
         controls
       />
     </div>

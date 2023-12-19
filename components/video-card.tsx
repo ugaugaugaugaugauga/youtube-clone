@@ -28,7 +28,7 @@ const VideoCard = ({
 
   return (
     <Card className='border-none shadow-none'>
-      <CardContent className='relative aspect-video clear-none '>
+      <CardContent className='relative aspect-video clear-none object-fill'>
         <video
           onClick={onClick}
           src={thumbnailUrl}

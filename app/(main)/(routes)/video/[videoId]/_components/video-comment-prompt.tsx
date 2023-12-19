@@ -15,9 +15,12 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Textarea } from '@/components/ui/textarea'
+import axios from 'axios'
+import { toast } from 'sonner'
+import { useRouter } from 'next/navigation'
 
 const FormSchema = z.object({
-  bio: z
+  comment: z
     .string()
     .min(1, {
       message: '댓글을 입력해주세요.',
@@ -27,13 +30,26 @@ const FormSchema = z.object({
     }),
 })
 
-const VideoCommentPrompt = () => {
+interface VideoCommentPromptProps {
+  videoId: string
+}
+
+const VideoCommentPrompt = ({ videoId }: VideoCommentPromptProps) => {
+  const router = useRouter()
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
+    defaultValues: { comment: '' },
   })
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log('dasdas')
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
+    try {
+      await axios.post(`/api/video/${videoId}/comment`, data)
+      toast.success('댓글 성공')
+      form.reset({ comment: '' })
+      router.refresh()
+    } catch (error) {
+      toast.error('댓글 실패')
+    }
   }
 
   return (
@@ -44,7 +60,7 @@ const VideoCommentPrompt = () => {
       >
         <FormField
           control={form.control}
-          name='bio'
+          name='comment'
           render={({ field }) => (
             <FormItem>
               <FormLabel>댓글</FormLabel>
