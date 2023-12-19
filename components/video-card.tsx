@@ -37,7 +37,13 @@ const VideoCard = ({
       </CardContent>
 
       <CardFooter className='items-start'>
-        <Avatar src={user.image} />
+        <button
+          onClick={() => {
+            router.push(`/user/${user.id}`)
+          }}
+        >
+          <Avatar src={user.image} />
+        </button>
         <div className='flex flex-col'>
           <div className='ml-2 line-clamp-2 cursor-pointer'>{title}</div>
           <div className='flex text-muted-foreground text-sm'>

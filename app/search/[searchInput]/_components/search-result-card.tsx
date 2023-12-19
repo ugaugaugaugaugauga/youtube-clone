@@ -35,17 +35,19 @@ const SearchResultCard = async ({
         />
       </Link>
 
-      <div className='flex flex-col pl-3'>
+      <div className='flex-1 flex-col pl-3'>
         <div className='text-xl'>{title}</div>
         <div className='flex flex-row text-muted-foreground text-sm'>
           <p>조회수 {viewCount} 회</p>
           <span className='pl-2'>{createdAt}</span>
         </div>
-        <div className='flex flex-row items-center my-4'>
-          <Avatar src={user?.image} size={30} />
-          <div className='pl-2'>{user?.name}</div>
-        </div>
-        <div>{description}</div>
+        <Link href={`/user/${userId}`}>
+          <button className='flex flex-row items-center my-4'>
+            <Avatar src={user?.image} size={30} />
+            <div className='pl-2'>{user?.name}</div>
+          </button>
+        </Link>
+        <div className='line-clamp-2'>{description}</div>
       </div>
     </div>
   )
