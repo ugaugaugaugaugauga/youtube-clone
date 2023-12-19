@@ -2,18 +2,30 @@
 
 import Avatar from '@/components/avatar'
 import { Button } from '@/components/ui/button'
+import { useRouter } from 'next/navigation'
 
 interface VideoInfoProps {
+  userId: string
   img: string
   name: string
   subscribeCount: number
   isOwner: boolean
 }
 
-const VideoInfo = ({ img, name, subscribeCount, isOwner }: VideoInfoProps) => {
+const VideoInfo = ({
+  userId,
+  img,
+  name,
+  subscribeCount,
+  isOwner,
+}: VideoInfoProps) => {
+  const router = useRouter()
+
   return (
     <div className='flex items-start gap-3'>
-      <Avatar src={img} />
+      <button onClick={() => router.push(`/user/${userId}`)}>
+        <Avatar src={img} />
+      </button>
       <div className='flex flex-col'>
         <p className='font-semibold'>{name}</p>
         <p className='text-muted-foreground text-xs'>

@@ -70,6 +70,7 @@ const VideoIdPage = async ({ params }: { params: { videoId: string } }) => {
       <div className='px-4 2xl:w-[1600px] w-auto mx-auto flex flex-col gap-3 pt-3'>
         <VideoTitle title={video.title} />
         <VideoInfo
+          userId={videoOwner.id}
           img={videoOwner.image!}
           name={videoOwner.name!}
           subscribeCount={videoOwner._count.subscribes}
