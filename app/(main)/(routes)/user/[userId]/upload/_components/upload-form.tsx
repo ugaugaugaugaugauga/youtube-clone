@@ -16,9 +16,11 @@ const UploadForm = ({ userId }: UploadFormProps) => {
   const [video, setVideo] = useState('')
   const [title, setTitle] = useState('')
   const [description, setDesCription] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const onSubmit = async () => {
     try {
+      setIsSubmitting(true)
       await axios.post(`/api/video`, {
         userId: userId,
         video: video,
@@ -30,6 +32,8 @@ const UploadForm = ({ userId }: UploadFormProps) => {
       router.refresh()
     } catch (error) {
       toast.error('Something went wrong')
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -41,6 +45,7 @@ const UploadForm = ({ userId }: UploadFormProps) => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           className='w-auto'
+          disabled={isSubmitting}
         />
       </div>
       <div className='flex items-center gap-3'>
@@ -49,6 +54,7 @@ const UploadForm = ({ userId }: UploadFormProps) => {
           value={description}
           onChange={(e) => setDesCription(e.target.value)}
           className='w-auto'
+          disabled={isSubmitting}
         />
       </div>
       {!video ? (
@@ -65,6 +71,7 @@ const UploadForm = ({ userId }: UploadFormProps) => {
             onClick={() => setVideo('')}
             className='absolute top-0 right-0'
             variant={'destructive'}
+            disabled={isSubmitting}
           >
             수정하기
           </Button>
@@ -74,6 +81,7 @@ const UploadForm = ({ userId }: UploadFormProps) => {
       <Button
         onClick={onSubmit}
         className='bg-sky-500 hover:bg-sky-300 w-full md:w-[200px]'
+        disabled={isSubmitting}
       >
         업로드
       </Button>

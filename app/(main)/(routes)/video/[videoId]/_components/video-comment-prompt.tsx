@@ -8,7 +8,6 @@ import { Button } from '@/components/ui/button'
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -18,6 +17,7 @@ import { Textarea } from '@/components/ui/textarea'
 import axios from 'axios'
 import { toast } from 'sonner'
 import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 
 const FormSchema = z.object({
   comment: z
@@ -40,15 +40,19 @@ const VideoCommentPrompt = ({ videoId }: VideoCommentPromptProps) => {
     resolver: zodResolver(FormSchema),
     defaultValues: { comment: '' },
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     try {
+      setIsSubmitting(true)
       await axios.post(`/api/video/${videoId}/comment`, data)
       toast.success('댓글 성공')
       form.reset({ comment: '' })
       router.refresh()
     } catch (error) {
       toast.error('댓글 실패')
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -61,11 +65,13 @@ const VideoCommentPrompt = ({ videoId }: VideoCommentPromptProps) => {
         <FormField
           control={form.control}
           name='comment'
+          disabled={isSubmitting}
           render={({ field }) => (
             <FormItem>
               <FormLabel>댓글</FormLabel>
               <FormControl>
                 <Textarea
+                  disabled={isSubmitting}
                   placeholder='댓글을 입력하세요.'
                   className='resize-none'
                   {...field}
@@ -75,7 +81,11 @@ const VideoCommentPrompt = ({ videoId }: VideoCommentPromptProps) => {
             </FormItem>
           )}
         />
-        <Button type='submit' className='absolute right-3 top-10'>
+        <Button
+          disabled={isSubmitting}
+          type='submit'
+          className='absolute right-3 top-10'
+        >
           입력
         </Button>
       </form>

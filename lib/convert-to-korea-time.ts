@@ -1,7 +1,9 @@
 export function convertToKoreanDate(inputDateString: string): string {
   const inputDate = new Date(inputDateString)
 
-  const koreaTime = new Date(inputDate.getTime() + 9 * 60 * 60 * 1000)
+  // console.log(inputDate.getTime())
+
+  const koreaTime = new Date(inputDate.getTime() + 9 * 60 * 60)
 
   const formattedDate = new Intl.DateTimeFormat('ko-KR', {
     year: 'numeric',

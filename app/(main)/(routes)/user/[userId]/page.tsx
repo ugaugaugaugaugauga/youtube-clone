@@ -27,9 +27,11 @@ const UserPage = async ({ params }: { params: UserPageProps }) => {
     },
   })
 
+  const isCurrentUser = currentUser?.id === user?.id
+
   return (
     <div className='w-full'>
-      <ChannelHeader user={user} />
+      <ChannelHeader user={user} isCurrentUser={isCurrentUser} />
       <ChannelBody
         user={user}
         videos={videos}
