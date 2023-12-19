@@ -81,7 +81,7 @@ const UploadForm = ({ userId }: UploadFormProps) => {
       <Button
         onClick={onSubmit}
         className='bg-sky-500 hover:bg-sky-300 w-full md:w-[200px]'
-        disabled={isSubmitting}
+        disabled={isSubmitting || !!video}
       >
         업로드
       </Button>
