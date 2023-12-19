@@ -20,7 +20,9 @@ model User {
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
 
-  accounts Account[]
+  accounts   Account[]
+  subscribes Subscribe[]
+  videos     Video[]
 }
 
 model Account {
@@ -44,25 +46,14 @@ model Account {
   @@index([userId])
 }
 
-model Channel {
-  id          String @id @default(uuid())
-  img         String
-  userId      String
-  description String @default("")
-
-  subscribes Subscribe[]
-  videos     Video[]
-}
-
 model Subscribe {
   id     String @id @default(uuid())
   userId String
 
-  channel Channel? @relation(fields: [channelId], references: [id], onDelete: Cascade)
-
   createAt  DateTime @default(now())
   updateAt  DateTime @updatedAt
   channelId String?
+  user      User     @relation(fields: [userId], references: [id])
 }
 
 model Video {
@@ -77,8 +68,8 @@ model Video {
   updateAt DateTime @updatedAt
 
   comments  Comment[]
-  channel   Channel?  @relation(fields: [channelId], references: [id], onDelete: Cascade)
   channelId String?
+  user      User      @relation(fields: [userId], references: [id])
 }
 
 model Comment {
