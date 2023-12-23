@@ -12,7 +12,7 @@
 - Tailwind CSS
 - Shadcn/UI (Styled Components)
 - Sonner (Toaster)
-- 
+
 ### 데이터 유효성 검사
 - Zod (Validation)
 
