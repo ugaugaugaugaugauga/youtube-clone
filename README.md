@@ -7,12 +7,14 @@
 - TypeScript
 - React
 - Next.js
-- Zod (Validation)
 
 ### Style
 - Tailwind CSS
 - Shadcn/UI (Styled Components)
 - Sonner (Toaster)
+- 
+### 데이터 유효성 검사
+- Zod (Validation)
 
 ### 상태 관리
 - Zustand
