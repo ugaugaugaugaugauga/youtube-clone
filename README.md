@@ -29,7 +29,7 @@
 ### 데이터베이스
 - PostgreSQL (개발 환경)
 - MySQL (배포, PlanetScale)
-  
+
 ### 파일 업로드 및 저장소
 - Uploading (Storage)
 
