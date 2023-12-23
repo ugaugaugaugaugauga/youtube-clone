@@ -9,6 +9,11 @@
 - Next.js
 - Zod (Validation)
 
+### Style
+- Tailwind CSS
+- Shadcn/UI (Styled Components)
+- Sonner (Toaster)
+
 ### 상태 관리
 - Zustand
 
@@ -16,26 +21,19 @@
 - Axios
 - NextAuth
 
-### UI 및 스타일
-- Tailwind CSS
-- Shadcn/UI (Styled Components)
-- Sonner (Toaster)
-
 ## Backend
 
-### 언어 및 프레임워크
+### ORM
 - Prisma
 
-### 데이터베이스
+### DB
 - PostgreSQL (개발 환경)
 - MySQL (배포, PlanetScale)
 
-### 파일 업로드 및 저장소
+### File Storege
 - Uploading (Storage)
 
 
-## 인프라 및 배포
+## DeployMent
 - Vercel
-
-## 추가 라이브러리
 
