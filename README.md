@@ -4,10 +4,10 @@
 
 ### 언어 및 라이브러리
 - JavaScript (ES6)
+- TypeScript
 - React
 - Next.js
-- TypeScript
-- Tailwind CSS
+- Zod (Validation)
 
 ### 상태 관리
 - Zustand
@@ -17,13 +17,14 @@
 - NextAuth
 
 ### UI 및 스타일
+- Tailwind CSS
 - Shadcn/UI (Styled Components)
 - Sonner (Toaster)
 
+## Backend
+
 ### 파일 업로드 및 저장소
 - Uploading (Storage)
-
-## Backend
 
 ### 언어 및 프레임워크
 - Prisma
@@ -37,5 +38,3 @@
 
 ## 추가 라이브러리
 
-### 데이터 유효성 검사
-- Zod (Validation)
