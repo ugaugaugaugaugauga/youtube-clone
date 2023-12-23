@@ -25,6 +25,9 @@
 
 ## Backend
 
+### Server
+- express(Next.js)
+
 ### ORM
 - Prisma
 
