@@ -63,7 +63,7 @@ const VideoIdPage = async ({ params }: { params: { videoId: string } }) => {
     },
   })
 
-  const isCurrentUserOwner = isOwner?.userId === currentUser?.id
+  const isCurrentUserOwner = isOwner?.userId !== currentUser?.id
   return (
     <>
       <VideoPlayer src={video.video} />
@@ -71,6 +71,7 @@ const VideoIdPage = async ({ params }: { params: { videoId: string } }) => {
         <VideoTitle title={video.title} />
         <VideoInfo
           userId={videoOwner.id}
+          videoId={video.id}
           img={videoOwner.image!}
           name={videoOwner.name!}
           subscribeCount={videoOwner._count.subscribes}

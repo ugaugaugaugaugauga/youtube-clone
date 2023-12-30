@@ -21,8 +21,7 @@ const UploadForm = ({ userId }: UploadFormProps) => {
   const onSubmit = async () => {
     try {
       setIsSubmitting(true)
-      await axios.post(`/api/video`, {
-        userId: userId,
+      await axios.post(`/api/user/${userId}/video`, {
         video: video,
         title: title,
         description: description,
