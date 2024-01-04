@@ -1,7 +1,7 @@
 # 설명
 
 - 간단한 동영상 공유 플렛폼(반응형)
-- 작동 영상 링크 https://utfs.io/f/aa3454c5-d970-43d9-ab49-69b24cc465fc-r29c9.mp4
+- 작동 영상 링크 https://utfs.io/f/52dc2c87-4c41-4702-a707-f77effba7787-4pguoq.mp4
 
 
 # 프로젝트 기술 스택
