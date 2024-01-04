@@ -7,6 +7,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
+import Logo from './logo'
 
 const MenuButton = () => {
   return (
@@ -15,7 +16,7 @@ const MenuButton = () => {
         <Menu />
       </SheetTrigger>
       <SheetContent side={'left'}>
-        <div>content</div>
+        <Logo />
       </SheetContent>
     </Sheet>
   )
