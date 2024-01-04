@@ -44,7 +44,7 @@ const VideoCard = ({
 
   return (
     <Card className='border-none shadow-none'>
-      <CardContent className='relative aspect-video clear-none object-fill sm:px-4 p-0 sm:pb-4'>
+      <CardContent className='relative aspect-video clear-none object-fill sm:px-4 p-0'>
         <video
           onMouseEnter={playVideo}
           onMouseLeave={pauseVideo}
@@ -56,7 +56,7 @@ const VideoCard = ({
         />
       </CardContent>
 
-      <CardFooter className='items-start sm:p-4 p-0 sm:py-0 py-2'>
+      <CardFooter className='items-start p-0 py-2 sm:px-4 sm:py-0 sm:pb-4 bg-zinc-50'>
         <button
           onClick={() => {
             router.push(`/user/${user.id}`)
