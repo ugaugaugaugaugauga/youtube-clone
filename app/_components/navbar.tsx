@@ -12,7 +12,9 @@ const Navbar = async () => {
       <nav className='fixed z-50 w-full bg-zinc-50 h-[50px] flex items-center justify-between px-5'>
         <div className='flex items-center gap-5'>
           <MenuButton />
-          <Logo />
+          <div className='md:block hidden'>
+            <Logo />
+          </div>
         </div>
         <SearchBar />
         <UserButton currentUser={currentUser} />

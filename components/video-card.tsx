@@ -51,7 +51,7 @@ const VideoCard = ({
           ref={videoRef}
           onClick={onClick}
           src={thumbnailUrl}
-          className='object-cover rounded-xl cursor-pointer sm:hover:scale-105 transition-all'
+          className='object-cover sm:rounded-xl cursor-pointer sm:hover:scale-105 transition-all'
           muted
         />
       </CardContent>
