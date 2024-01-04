@@ -56,7 +56,7 @@ const VideoCard = ({
         />
       </CardContent>
 
-      <CardFooter className='items-start p-0 py-2 sm:px-4 sm:py-0 sm:pb-4 bg-zinc-50'>
+      <CardFooter className='items-start p-0 py-2 sm:px-4 sm:py-0 sm:pb-4'>
         <button
           onClick={() => {
             router.push(`/user/${user.id}`)
