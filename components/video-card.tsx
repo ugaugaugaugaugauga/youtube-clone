@@ -44,7 +44,7 @@ const VideoCard = ({
 
   return (
     <Card className='border-none shadow-none'>
-      <CardContent className='relative aspect-video clear-none object-fill sm:px-4 p-0'>
+      <CardContent className='relative aspect-video clear-none object-fill sm:px-4 p-0 sm:pb-4'>
         <video
           onMouseEnter={playVideo}
           onMouseLeave={pauseVideo}
